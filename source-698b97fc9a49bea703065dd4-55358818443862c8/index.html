@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CGO Soluciones Contables | Contadores en Pasto Nariño</title>
+  <meta name="description" content="CGO Soluciones Contables en Pasto, Nariño. Asesoría contable, tributaria y financiera para empresas y personas naturales." />
+  <meta name="keywords" content="contador en Pasto, contabilidad Pasto, asesoría tributaria Nariño, CGO Soluciones Contables" />
+  <meta name="author" content="CGO Soluciones Contables" />
+  <meta name="geo.region" content="CO-NAR" />
+  <meta name="geo.placename" content="Pasto" />
+  <meta name="geo.position" content="1.2136;-77.2811" />
+  <meta name="ICBM" content="1.2136, -77.2811" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rojo: #d71920;
+      --rojo-oscuro: #a81117;
+      --gris: #64748b;
+      --negro: #0f172a;
+      --claro: #f8fafc;
+      --blanco: #ffffff;
+      --sombra: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      --sombra-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+      --radio: 24px;
+      --transicion: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--claro);
+      color: var(--negro);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transicion);
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 12px 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .navbar-logo {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      transition: var(--transicion);
+    }
+
+    .navbar.scrolled .navbar-logo {
+      color: var(--negro);
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transicion);
+      position: relative;
+    }
+
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--rojo);
+      transition: width 0.3s ease;
+    }
+
+    .navbar-links a:hover::after {
+      width: 100%;
+    }
+
+    .navbar.scrolled .navbar-links a {
+      color: var(--gris);
+    }
+
+    .navbar.scrolled .navbar-links a:hover {
+      color: var(--negro);
+    }
+
+    .nav-cta {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 24px !important;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      transition: var(--transicion);
+    }
+
+    .navbar.scrolled .nav-cta {
+      background: var(--rojo) !important;
+      color: #fff !important;
+      border-color: var(--rojo);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      transition: var(--transicion);
+    }
+
+    .navbar.scrolled .menu-toggle span {
+      background: var(--negro);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, #1a0005 0%, #d71920 50%, #ff4d4d 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(255,255,255,0.04) 0%, transparent 50%);
+      animation: floatBg 20s ease-in-out infinite;
+    }
+
+    @keyframes floatBg {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(1deg); }
+      66% { transform: translate(-20px, 20px) rotate(-1deg); }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+    }
+
+    .hero-orb-1 {
+      width: 500px;
+      height: 500px;
+      background: #ff6b6b;
+      top: -100px;
+      right: -100px;
+      animation: orbFloat1 15s ease-in-out infinite;
+    }
+
+    .hero-orb-2 {
+      width: 400px;
+      height: 400px;
+      background: #ffd93d;
+      bottom: -150px;
+      left: -100px;
+      animation: orbFloat2 18s ease-in-out infinite;
+    }
+
+    .hero-orb-3 {
+      width: 300px;
+      height: 300px;
+      background: #ff8a8a;
+      top: 40%;
+      left: 60%;
+      animation: orbFloat3 12s ease-in-out infinite;
+    }
+
+    @keyframes orbFloat1 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-60px, 60px); }
+    }
+    @keyframes orbFloat2 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(40px, -40px); }
+    }
+    @keyframes orbFloat3 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-30px, -50px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease 0.15s forwards;
+      opacity: 0;
+    }
+
+    .hero h1 span {
+      display: block;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease 0.3s forwards;
+      opacity: 0;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.45s forwards;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: #fff;
+      color: var(--rojo);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transicion);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transicion);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: fadeInUp 0.8s ease 0.6s forwards, bounce 2s ease-in-out infinite 1.4s;
+      opacity: 0;
+    }
+
+    .hero-scroll-inner {
+      width: 28px;
+      height: 44px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 14px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .hero-scroll-dot {
+      width: 4px;
+      height: 10px;
+      background: #fff;
+      border-radius: 4px;
+      animation: scrollDot 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollDot {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: var(--blanco);
+      padding: 0 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #e2e8f0;
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transform: translateY(-50%);
+    }
+
+    .stat-item {
+      background: var(--blanco);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--rojo);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--gris);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* ===== SECTIONS GENERAL ===== */
+    .section {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--rojo);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--negro);
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--gris);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ===== SERVICIOS ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transicion);
+      border: 1px solid #e2e8f0;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rojo), #ff6b6b);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra);
+      border-color: transparent;
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fef2f2, #fecaca);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--negro);
+    }
+
+    .service-card p {
+      color: var(--gris);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--gris);
+    }
+
+    .service-list li::before {
+      content: '✓';
+      color: var(--rojo);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      color: var(--negro);
+    }
+
+    .about-text h2 span {
+      color: var(--rojo);
+    }
+
+    .about-text p {
+      color: var(--gris);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--claro);
+      border-radius: 16px;
+      transition: var(--transicion);
+    }
+
+    .about-feature:hover {
+      background: #fef2f2;
+    }
+
+    .about-feature-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 12px;
+      background: var(--blanco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--sombra-sm);
+    }
+
+    .about-feature span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--negro);
+    }
+
+    .about-img-wrapper {
+      position: relative;
+    }
+
+    .about-img-wrapper img {
+      width: 100%;
+      border-radius: var(--radio);
+      object-fit: cover;
+      aspect-ratio: 4/5;
+      box-shadow: var(--sombra);
+    }
+
+    .about-img-card {
+      position: absolute;
+      bottom: -24px;
+      left: -24px;
+      background: var(--blanco);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--sombra);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .about-img-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--rojo), #ff6b6b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .about-img-card-text strong {
+      display: block;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .about-img-card-text span {
+      font-size: 0.85rem;
+      color: var(--gris);
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery-section {
+      padding: 100px 20px;
+      background: var(--negro);
+      color: #fff;
+    }
+
+    .gallery-section .section-tag {
+      color: #ff8a8a;
+    }
+
+    .gallery-section .section-title {
+      color: #fff;
+    }
+
+    .gallery-section .section-desc {
+      color: #94a3b8;
+    }
+
+    .gallery-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* ===== CONTACTO ===== */
+    .contact-section {
+      padding: 100px 20px;
+      background: linear-gradient(180deg, var(--claro) 0%, #fff 100%);
+    }
+
+    .contact-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .contact-info > p {
+      color: var(--gris);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .contact-item-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fef2f2, #fecaca);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .contact-item-text h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .contact-item-text p {
+      color: var(--gris);
+      font-size: 0.9rem;
+    }
+
+    .contact-item-text a {
+      color: var(--rojo);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-map {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+    }
+
+    .contact-map-info {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-map-info p {
+      font-size: 0.9rem;
+      color: var(--gris);
+    }
+
+    .contact-map-info strong {
+      display: block;
+      color: var(--negro);
+      font-size: 1rem;
+    }
+
+    .contact-map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: var(--rojo);
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: var(--transicion);
+    }
+
+    .contact-map-btn:hover {
+      background: var(--rojo-oscuro);
+      transform: translateY(-2px);
+    }
+
+    /* ===== QR ===== */
+    .qr-banner {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .qr-inner {
+      background: linear-gradient(135deg, var(--negro) 0%, #1e293b 100%);
+      border-radius: var(--radio);
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .qr-inner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(215, 25, 32, 0.15), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .qr-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .qr-text h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .qr-text p {
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+
+    .qr-img {
+      position: relative;
+      z-index: 2;
+      width: 140px;
+      min-width: 140px;
+      height: 140px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .qr-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--negro);
+      color: #fff;
+      padding: 80px 20px 30px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .footer-brand p {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-logo span {
+      color: var(--rojo);
+    }
+
+    footer h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      color: #94a3b8;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: var(--transicion);
+    }
+
+    .footer-social a:hover {
+      background: var(--rojo);
+      color: #fff;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+      transition: var(--transicion);
+      animation: whatsappPulse 3s ease-in-out infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 15px 50px rgba(37, 211, 102, 0.5);
+    }
+
+    @keyframes whatsappPulse {
+      0%, 100% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+    }
+
+    .wa-icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .navbar-links {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-img-wrapper {
+        order: -1;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+        aspect-ratio: 16/9;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .qr-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        padding: 16px 20px;
+      }
+      .hero {
+        min-height: 100svh;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-features {
+        grid-template-columns: 1fr;
+      }
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        border-radius: 20px;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-item:first-child {
+        grid-column: span 1;
+      }
+      .section {
+        padding: 60px 20px;
+      }
+      .gallery-section {
+        padding: 60px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="navbar-logo">CGO</a>
+  <ul class="navbar-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#espacios">Espacios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://wa.me/573044460454" class="nav-cta">WhatsApp</a></li>
+  </ul>
+  <div class="menu-toggle" id="menuToggle" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Más de 10 años de experiencia
+    </div>
+    <h1><span>Soluciones contables</span><span>que impulsan tu negocio</span></h1>
+    <p class="hero-sub">Asesoría contable, tributaria y financiera moderna, confiable y estratégica para empresas y personas naturales en Pasto, Nariño.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/573044460454" class="btn-primary">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escríbenos
+      </a>
+      <a href="#servicios" class="btn-secondary">Conoce nuestros servicios →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-inner">
+      <div class="hero-scroll-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Clientes satisfechos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Cumplimiento normativo</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Soporte disponible</div>
+    </div>
+  </div>
+</div>
+
+<!-- Servicios -->
+<section class="section" id="servicios">
+  <div class="section-header reveal">
+    <span class="section-tag">Nuestros servicios</span>
+    <h2 class="section-title">Todo lo que tu empresa necesita</h2>
+    <p class="section-desc">Soluciones integrales para que te concentres en lo que realmente importa: hacer crecer tu negocio.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">📊</div>
+      <h3>Contabilidad Integral</h3>
+      <p>Procesos contables claros, oportunos y completamente alineados con la normatividad colombiana vigente.</p>
+      <ul class="service-list">
+        <li>Registros contables mensuales</li>
+        <li>Estados financieros</li>
+        <li>Informes de gestión</li>
+      </ul>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🏛️</div>
+      <h3>Asesoría Tributaria</h3>
+      <p>Planeación fiscal inteligente con enfoque estratégico en impuestos nacionales y territoriales.</p>
+      <ul class="service-list">
+        <li>Declaración de renta</li>
+        <li>Planeación tributaria</li>
+        <li>Devoluciones de IVA</li>
+      </ul>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">💼</div>
+      <h3>Consultoría Empresarial</h3>
+      <p>Acompañamiento financiero y administrativo para la toma de decisiones estratégicas.</p>
+      <ul class="service-list">
+        <li>Diagnóstico financiero</li>
+        <li>Presupuestos y proyecciones</li>
+        <li>Optimización de procesos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Nosotros -->
+<section class="section" id="nosotros">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <span class="section-tag">Sobre nosotros</span>
+      <h2>Más que contadores, somos <span>aliados</span> de tu negocio</h2>
+      <p>Contamos con un espacio profesional, moderno y cómodo para atender a nuestros clientes en la ciudad de Pasto, reflejando seriedad, confianza y organización en cada interacción.</p>
+      <p>Nuestra misión es brindar tranquilidad financiera a empresas y personas naturales mediante soluciones contables estratégicas y personalizadas.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon">🎯</div>
+          <span>Enfoque estratégico</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">🔒</div>
+          <span>Confidencialidad total</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">⚡</div>
+          <span>Respuesta rápida</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">📈</div>
+          <span>Resultados medibles</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-img-wrapper reveal">
+      <img src="fachada.jpg" alt="Oficina CGO Soluciones Contables en Pasto" />
+      <div class="about-img-card">
+        <div class="about-img-card-icon">📍</div>
+        <div class="about-img-card-text">
+          <strong>Pasto, Nariño</strong>
+          <span>Calle 20 # 29 – 07 Of. 205</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galería -->
+<section class="gallery-section" id="espacios">
+  <div class="section-header reveal">
+    <span class="section-tag">Nuestros espacios</span>
+    <h2 class="section-title">Donde los negocios se fortalecen</h2>
+    <p class="section-desc">Espacios diseñados para brindarte comodidad, privacidad y profesionalismo en cada reunión.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="oficina3.jpg" alt="Área administrativa CGO" />
+      <div class="gallery-overlay"><span>Área administrativa</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="oficina1.jpg" alt="Recepción" />
+      <div class="gallery-overlay"><span>Recepción</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="oficina2.jpg" alt="Sala de reuniones" />
+      <div class="gallery-overlay"><span>Sala de reuniones</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="oficina.jpg" alt="Oficina principal" />
+      <div class="gallery-overlay"><span>Oficina principal</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="contact-section" id="contacto">
+  <div class="section-header reveal">
+    <span class="section-tag">Contacto</span>
+    <h2 class="section-title">Hablemos de tu proyecto</h2>
+    <p class="section-desc">Estamos listos para ayudarte. Agenda una cita o escríbenos directamente.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <h4>Dirección</h4>
+            <p>Calle 20 # 29 – 07, Oficina 205<br>Pasto, Nariño – Colombia</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div class="contact-item-text">
+            <h4>Teléfono / WhatsApp</h4>
+            <p><a href="https://wa.me/573044460454">304 446 0454</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-text">
+            <h4>Horario de atención</h4>
+            <p>Lunes a Viernes<br>8:00 a.m. – 6:00 p.m.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7!2d-77.2811!3d1.2136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPasto%2C+Nari%C3%B1o!5e0!3m2!1ses!2sco!4v1" allowfullscreen="" loading="lazy" title="Ubicación de CGO Soluciones Contables en Pasto"></iframe>
+      <div class="contact-map-info">
+        <div>
+          <strong>CGO Soluciones Contables</strong>
+          <p>Calle 20 # 29 – 07, Of. 205</p>
+        </div>
+        <a href="https://wa.me/573044460454" class="contact-map-btn">Agendar cita →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QR -->
+<div class="qr-banner reveal">
+  <div class="qr-inner">
+    <div class="qr-text">
+      <h3>Guarda nuestro contacto</h3>
+      <p>Escanea el código QR para tener nuestra información siempre a la mano.</p>
+    </div>
+    <div class="qr-img">
+      <img src="codigo qr cgo.png" alt="QR CGO Soluciones Contables" />
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">CGO <span>Soluciones</span></div>
+        <p>Comprometidos con el crecimiento y la tranquilidad financiera de nuestros clientes en Pasto y toda la región de Nariño.</p>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="#servicios">Contabilidad</a></li>
+          <li><a href="#servicios">Asesoría tributaria</a></li>
+          <li><a href="#servicios">Consultoría</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul class="footer-links">
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#espacios">Espacios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/573044460454">WhatsApp</a></li>
+          <li><a href="tel:+573044460454">Llamar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CGO Soluciones Contables. Todos los derechos reservados.</span>
+      <div class="footer-social">
+        <a href="https://wa.me/573044460454" aria-label="WhatsApp" title="WhatsApp">💬</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/573044460454" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('active');
+        }, i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  revealElements.forEach(el => observer.observe(el));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Animate stat numbers
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const text = el.textContent;
+        const num = parseInt(text);
+        if (!isNaN(num)) {
+          const suffix = text.replace(/[0-9]/g, '');
+          let current = 0;
+          const step = Math.max(1, Math.floor(num / 40));
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= num) {
+              current = num;
+              clearInterval(interval);
+            }
+            el.textContent = current + suffix;
+          }, 30);
+        }
+        statsObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(el => statsObserver.observe(el));
+</script>
+
+</body>
+</html>
